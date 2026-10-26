@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../styles/tokens.css";
+@import "../styles/typography.css";
+@import "../styles/motion.css";
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar matching editorial aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(101, 10, 20, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(101, 10, 20, 0.5);
+}

@@ -1,0 +1,36 @@
+:root {
+  --color-ivory: #F7F3EB;
+  --color-ivory-warm: #F3ECE1;
+  --color-ivory-light: #FAF6EE;
+  --color-ivory-surface: #EFE8DC;
+  --color-ivory-border: #E5DDD0;
+  
+  --color-ink: #100C0B;
+  --color-ink-rich: #080504;
+  --color-ink-body: #2A2422;
+  --color-ink-muted: #5E534F;
+  --color-ink-faint: #8E827D;
+  
+  --color-burgundy: #650A14;
+  --color-burgundy-deep: #52060C;
+  --color-burgundy-dark: #59070A;
+  --color-burgundy-vibrant: #750B18;
+  --color-burgundy-glow: #94101E;
+  --color-burgundy-hover: #4A070E;
+  
+  --color-red-disc: #800812;
+  --color-stone: #A89D8F;
+  --color-stone-light: #D5CEC4;
+  --color-stone-faint: #EAE5DE;
+  
+  /* Dark page tokens (Karya & Catatan) */
+  --color-dark-bg: #060302;
+  --color-dark-surface: #0E0908;
+  --color-dark-card: #140E0C;
+  --color-dark-border: #281D1A;
+  --color-dark-text: #F7F1E6;
+  --color-dark-muted: #9E908B;
+
+  --nav-height: 72px;
+  --desktop-gutter: 68px;
+}

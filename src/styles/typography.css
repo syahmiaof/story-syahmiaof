@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Italiana&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+.font-editorial-display {
+  font-family: 'Bodoni Moda', 'Italiana', 'Playfair Display', Georgia, serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.font-editorial-sub {
+  font-family: 'Playfair Display', 'Bodoni Moda', Georgia, serif;
+}
+
+.font-editorial-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Micro editorial tracking */
+.tracking-micro {
+  letter-spacing: 0.22em;
+}
+
+.tracking-ultra-wide {
+  letter-spacing: 0.28em;
+}
+
+/* Editorial line wipe / mask utility */
+.line-mask-wrapper {
+  overflow: hidden;
+  display: block;
+}

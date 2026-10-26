@@ -1,0 +1,28 @@
+/* Editorial motion & ambient aesthetics */
+
+/* Subtle film grain texture */
+.editorial-grain {
+  background-image: radial-gradient(rgba(16, 12, 11, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.editorial-grain-dark {
+  background-image: radial-gradient(rgba(247, 241, 230, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glass ribbon specular effect */
+.glass-ribbon {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
