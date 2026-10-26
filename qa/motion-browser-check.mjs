@@ -1,0 +1,2 @@
+import {chromium} from 'playwright';
+const b=await chromium.launch();const p=await b.newPage({viewport:{width:1672,height:941}});const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto('http://localhost:3002/perjalanan',{waitUntil:'networkidle'});await p.waitForTimeout(2300);console.log(JSON.stringify({motionState:await p.locator('.reference-page').getAttribute('data-motion-state'),errors}));await b.close();

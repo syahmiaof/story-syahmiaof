@@ -1,12 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { projectsData, Project } from "@/data/projects";
-import { ArrowUpRight, Check, Code, ExternalLink, X } from "lucide-react";
+import { ArrowUpRight, Check, X } from "lucide-react";
+import { locale } from "@/data/locales";
+import { useLanguage } from "@/components/layout/LanguageProvider";
+import { projectLocales } from "@/data/project-locales";
 
 export default function ProjectGallery() {
+  const { language } = useLanguage();
+  const ui = locale[language].projectUi;
+  const action = locale[language].actions;
   const [selectedCategory, setSelectedCategory] = useState<string>("Semua");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const closeButton = useRef<HTMLButtonElement>(null);
+  const activeCopy = activeProject ? projectLocales[language][activeProject.id] : null;
+
+  useEffect(() => {
+    if (!activeProject) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setActiveProject(null); };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", closeOnEscape);
+    closeButton.current?.focus();
+    return () => { document.body.style.overflow = previousOverflow; document.removeEventListener("keydown", closeOnEscape); };
+  }, [activeProject]);
 
   const filteredProjects =
     selectedCategory === "Semua"
@@ -18,20 +36,20 @@ export default function ProjectGallery() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-[#281D1A] pb-8">
         <div>
           <span className="text-xs uppercase tracking-ultra-wide text-stone-400 font-semibold block mb-2">
-            PORTFOLIO KEJURUTERAAN
+            {ui.kicker}
           </span>
           <h2 className="font-editorial-display text-3xl md:text-5xl uppercase font-bold text-stone-100">
-            Koleksi Karya Pilihan
+            {ui.title}
           </h2>
         </div>
         <p className="text-sm font-editorial-sans tracking-wide text-stone-400 max-w-md mt-4 md:mt-0">
-          Gabungan seni visual, kecekapan kod, seni bina awan, dan teknologi ejen pintar.
+          {ui.intro}
         </p>
       </div>
 
       {/* Category Filter Pills */}
       <div className="flex flex-wrap gap-3 mb-12">
-        {projectsData.categories.map((cat) => (
+        {projectsData.categories.map((cat, index) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
@@ -41,17 +59,24 @@ export default function ProjectGallery() {
                 : "bg-[#0E0908] border-[#281D1A] text-stone-400 hover:border-stone-600 hover:text-stone-200"
             }`}
           >
-            {cat}
+            {ui.categories[index]}
           </button>
         ))}
       </div>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((project) => (
+        {filteredProjects.map((project) => {
+          const copy = projectLocales[language][project.id];
+          const categoryIndex = projectsData.categories.slice(1).indexOf(project.category) + 1;
+          return (
           <div
             key={project.id}
             onClick={() => setActiveProject(project)}
+            onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setActiveProject(project); } }}
+            role="button"
+            tabIndex={0}
+            aria-label={`${ui.detail}: ${project.title}`}
             className="group relative bg-[#140E0C] border border-[#281D1A] p-8 md:p-10 transition-all duration-300 hover:border-[#650A14]/80 hover:shadow-2xl hover:shadow-burgundy/10 cursor-pointer flex flex-col justify-between"
           >
             <div>
@@ -60,7 +85,7 @@ export default function ProjectGallery() {
                   {project.tag}
                 </span>
                 <span className="text-xs tracking-micro uppercase px-2.5 py-1 bg-[#221614] border border-[#3A2420] text-stone-300 rounded-sm">
-                  {project.category}
+                  {ui.categories[categoryIndex] ?? copy.category}
                 </span>
               </div>
 
@@ -68,10 +93,10 @@ export default function ProjectGallery() {
                 {project.title}
               </h3>
               <p className="text-xs uppercase tracking-micro text-[#A81320] font-semibold mb-4">
-                {project.subtitle}
+                {copy.subtitle}
               </p>
               <p className="text-sm text-stone-300 leading-relaxed mb-6">
-                {project.description}
+                {copy.description}
               </p>
 
               {/* Tech Stack Chips */}
@@ -89,30 +114,37 @@ export default function ProjectGallery() {
 
             <div className="pt-6 border-t border-[#281D1A] flex items-center justify-between">
               <span className="text-xs uppercase tracking-micro font-semibold text-stone-400 group-hover:text-stone-200 transition-colors">
-                Perincian Projek
+                {ui.detail}
               </span>
               <div className="w-8 h-8 rounded-full border border-stone-700 flex items-center justify-center group-hover:border-[#650A14] group-hover:bg-[#650A14] group-hover:text-white transition-all">
                 <ArrowUpRight size={16} />
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Project Detail Modal */}
       {activeProject && (
-        <div
+          <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-md animate-fadeIn"
           onClick={() => setActiveProject(null)}
+            role="presentation"
         >
           <div
             className="relative w-full max-w-2xl bg-[#0E0908] border border-[#3A2420] p-8 md:p-12 shadow-2xl text-stone-100 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-dialog-title"
+              tabIndex={-1}
           >
             <button
+              ref={closeButton}
               onClick={() => setActiveProject(null)}
               className="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-800 transition-colors text-stone-400 hover:text-white"
-              aria-label="Tutup Dialog"
+              aria-label={ui.close}
             >
               <X size={22} />
             </button>
@@ -123,27 +155,27 @@ export default function ProjectGallery() {
               </span>
               <span className="w-6 h-[1px] bg-stone-700" />
               <span className="text-xs uppercase tracking-ultra-wide text-stone-400">
-                {activeProject.category}
+                {activeCopy?.category}
               </span>
             </div>
 
-            <h3 className="font-editorial-display text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-2">
+            <h3 id="project-dialog-title" className="font-editorial-display text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-2">
               {activeProject.title}
             </h3>
             <p className="text-sm uppercase tracking-micro text-[#A81320] font-semibold mb-6">
-              {activeProject.subtitle}
+              {activeCopy?.subtitle}
             </p>
 
             <p className="text-stone-300 text-base leading-relaxed mb-8">
-              {activeProject.description}
+              {activeCopy?.description}
             </p>
 
             <div className="space-y-4 mb-8">
               <h4 className="text-xs uppercase tracking-ultra-wide text-stone-400 font-bold">
-                Ciri-Ciri Utama & Seni Bina:
+                {action.features}:
               </h4>
               <ul className="space-y-2.5">
-                {activeProject.features.map((feat, idx) => (
+                {activeCopy?.features.map((feat, idx) => (
                   <li key={idx} className="flex items-start space-x-3 text-sm text-stone-300">
                     <Check size={16} className="text-[#A81320] mt-0.5 flex-shrink-0" />
                     <span>{feat}</span>
@@ -154,7 +186,7 @@ export default function ProjectGallery() {
 
             <div>
               <h4 className="text-xs uppercase tracking-ultra-wide text-stone-400 font-bold mb-3">
-                Teknologi Digunakan:
+                {action.stack}:
               </h4>
               <div className="flex flex-wrap gap-2">
                 {activeProject.stack.map((tech, idx) => (

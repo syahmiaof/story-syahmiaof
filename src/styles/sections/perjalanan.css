@@ -1,0 +1,57 @@
+/* Journey-specific legibility and narrow-screen layout refinements. */
+.reference-perjalanan .reference-title { text-wrap:balance; }
+
+@media (max-width: 999px) {
+  .reference-perjalanan .reference-hero {
+    isolation:isolate;
+    padding-bottom:clamp(350px, 96vw, 440px);
+  }
+
+  .reference-perjalanan .reference-hero::before {
+    content:"";
+    position:absolute;
+    z-index:1;
+    inset:0 0 0;
+    pointer-events:none;
+    background:linear-gradient(180deg, #f8f4eb 0%, #f8f4eb 42%, rgba(248,244,235,.94) 58%, rgba(248,244,235,.25) 79%, transparent 100%);
+  }
+
+  .reference-perjalanan .reference-copy { z-index:2; }
+  .reference-perjalanan .scene-layer {
+    z-index:0;
+    height:clamp(340px, 86vw, 410px);
+    left:50%;
+    width:min(100vw, 700px);
+    transform:translateX(-50%);
+    opacity:.88;
+  }
+  .reference-perjalanan .reference-title {
+    font-size:clamp(64px, 20vw, 92px);
+    letter-spacing:-2px;
+  }
+  .reference-perjalanan .headline-line { height:.86em; }
+  .reference-perjalanan .headline-line > span:not(.sr-only),
+  .reference-perjalanan .headline-line + .headline-line > span:not(.sr-only) {
+    transform:scaleX(.58);
+  }
+  .reference-perjalanan .reference-intro {
+    max-width:37rem;
+    text-shadow:0 1px 10px #f8f4eb;
+  }
+  .reference-perjalanan .milestone-modules {
+    position:relative;
+    z-index:2;
+  }
+}
+
+@media (max-width: 380px) {
+  .reference-perjalanan .reference-hero { padding-right:18px; padding-left:18px; }
+  .reference-perjalanan .reference-title { font-size:clamp(58px, 19vw, 72px); }
+  .reference-perjalanan .reference-actions { gap:8px; }
+  .reference-perjalanan .reference-button { padding:0 13px; font-size:13px; }
+  .reference-perjalanan .reference-module,
+  .reference-perjalanan .milestone-modules .reference-module {
+    grid-template-columns:minmax(0,1fr) minmax(0,.78fr);
+    gap:11px;
+  }
+}

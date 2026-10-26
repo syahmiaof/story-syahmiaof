@@ -1,18 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Italiana&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+/* Local, OFL-licensed fonts keep reference captures independent of Google CDN.
+   Sources and unmodified licenses are recorded in public/fonts/. */
+@font-face {
+  font-family: 'Bodoni Moda';
+  src: url('/fonts/BodoniModa-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tinos';
+  src: url('/fonts/Tinos-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tinos';
+  src: url('/fonts/Tinos-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tinos';
+  src: url('/fonts/Tinos-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --font-reference-display: 'Bodoni Moda', serif;
+  --font-reference-text: 'Tinos', serif;
+}
 
 .font-editorial-display {
-  font-family: 'Bodoni Moda', 'Italiana', 'Playfair Display', Georgia, serif;
-  font-variation-settings: "opsz" 96, "wght" 850;
+  font-family: var(--font-reference-display);
+  font-weight: 900;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 20, "wght" 900;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
 }
 
 .font-editorial-sub {
-  font-family: 'Playfair Display', 'Bodoni Moda', Georgia, serif;
+  font-family: var(--font-reference-text);
 }
 
 .font-editorial-sans {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* The per-page layout owns cap height and horizontal fit. This face supplies
+   the measured stroke contrast; never animate its horizontal fit transform. */
+.reference-title {
+  font-family: var(--font-reference-display);
+  font-weight: 900;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 20, "wght" 900;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
 }
 
 /* Micro editorial tracking */

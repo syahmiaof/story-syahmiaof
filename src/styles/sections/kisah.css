@@ -1,0 +1,70 @@
+/* Kisah section: keep the translated headline inside the narrow editorial text column. */
+.reference-kisah .reference-title:lang(en),
+:lang(en) .reference-kisah .reference-title {
+  letter-spacing: -.045em;
+}
+
+@media (max-width: 999px) {
+  .reference-kisah .reference-title {
+    font-size: clamp(68px, 19vw, 132px);
+  }
+
+  .reference-kisah .headline-line > span:not(.sr-only),
+  .reference-kisah .headline-line + .headline-line > span:not(.sr-only) {
+    transform: scaleX(.52);
+    transform-origin: left center;
+  }
+
+  :lang(en) .reference-kisah .reference-title {
+    font-size: clamp(58px, 16.5vw, 118px);
+  }
+
+  :lang(en) .reference-kisah .headline-line > span:not(.sr-only),
+  :lang(en) .reference-kisah .headline-line + .headline-line > span:not(.sr-only) {
+    transform: scaleX(.48);
+  }
+
+  :lang(zh-Hans) .reference-kisah .reference-title {
+    font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+    font-size: clamp(62px, 19vw, 120px);
+    letter-spacing: 0;
+  }
+
+  .reference-kisah .reference-module {
+    height: auto;
+    min-height: 230px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(108px, 1fr);
+    align-items: stretch;
+  }
+
+  .reference-kisah .module-copy {
+    min-width: 0;
+    padding-block: 4px;
+  }
+
+  .reference-kisah .module-copy h2 {
+    max-width: 100%;
+    white-space: normal;
+    font-size: clamp(22px, 6vw, 29px);
+    line-height: 1;
+  }
+
+  .reference-kisah .module-copy p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .reference-kisah .module-art {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 390px) {
+  .reference-kisah .reference-module {
+    grid-template-columns: minmax(0, 1fr) 96px;
+  }
+
+  .reference-kisah .module-copy button {
+    font-size: 12px;
+  }
+}

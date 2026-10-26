@@ -1,0 +1,16 @@
+/* Home hero's long second line must stay inside the copy column on narrow screens. */
+@media (max-width: 640px) {
+  .section-utama .reference-title .headline-line + .headline-line > span:not(.sr-only) {
+    transform: scaleX(.53);
+  }
+}
+@media (max-width: 480px) {
+  .section-utama .reference-title .headline-line + .headline-line > span:not(.sr-only) {
+    transform: scaleX(.51);
+  }
+}
+@media (max-width: 360px) {
+  .section-utama .reference-title .headline-line + .headline-line > span:not(.sr-only) {
+    transform: scaleX(.47);
+  }
+}
