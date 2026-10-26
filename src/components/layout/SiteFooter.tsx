@@ -10,7 +10,7 @@ export default function SiteFooter() {
   return <footer className="site-footer" id="hubungi">
     <div className="footer-topline"><span>SYAHMIAOF</span><span>THE STORY OF BECOMING</span></div>
     <div className="footer-main">
-      <div className="footer-about"><span className="footer-kicker">{copy.who}</span><h2>Who am I<span>?</span></h2><p>{copy.footer}</p><a href="#utama" className="footer-link">{copy.top}<ArrowUpRight size={15}/></a></div>
+      <div className="footer-about"><span className="footer-kicker">{copy.who}</span><h2 className="leading-normal py-1">Who am I<span>?</span></h2><p>{copy.footer}</p><a href="#utama" className="footer-link">{copy.top}<ArrowUpRight size={15}/></a></div>
       <div className="footer-contact"><span className="footer-kicker">{copy.contact}</span>
         <a href="https://wa.me/60107965236" target="_blank" rel="noreferrer"><MessageCircle size={17}/><span>010 796 5236</span><ArrowUpRight size={14}/></a>
         <a href="mailto:hello@syahmiaof.my"><Mail size={17}/><span>hello@syahmiaof.my</span><ArrowUpRight size={14}/></a>

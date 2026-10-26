@@ -41,7 +41,7 @@ export default function WelcomeIntro({ onDone }: { onDone: () => void }) {
         .fromTo(scoped(".welcome-orbit"), { opacity: 0, scale: .82 }, { opacity: 1, scale: 1, duration: 1.4, ease: "power3.out" }, 0);
     }
     const orbitTween = reduced ? null : gsap.to(scoped(".welcome-orbit-spin"), { rotation: 360, duration: 46, repeat: -1, ease: "none", transformOrigin: "50% 50%" });
-    timer.current = setTimeout(finish, 5000);
+    timer.current = setTimeout(finish, 3800);
     return () => {
       timeline.kill(); orbitTween?.kill();
       if (timer.current) clearTimeout(timer.current);
@@ -51,7 +51,14 @@ export default function WelcomeIntro({ onDone }: { onDone: () => void }) {
   const words = label.question.split(" ");
   return <div ref={overlay} className="welcome-overlay" role="dialog" aria-modal="true" aria-label={label.question}>
     <span className="welcome-coordinate">SYAHMIAOF <i /> 01 — 05</span>
-    <div className="welcome-orbit" aria-hidden="true"><div className="welcome-orbit-spin"><i/><i/><i/><i/></div><span className="welcome-core">✳</span></div>
+    <div className="welcome-orbit" aria-hidden="true">
+      <div className="welcome-orbit-spin"><i/><i/><i/><i/></div>
+      <span className="welcome-core">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 1L14.6 9.4L23 12L14.6 14.6L12 23L9.4 14.6L1 12L9.4 9.4L12 1Z" fill="#D82738" />
+        </svg>
+      </span>
+    </div>
     <div className="welcome-content">
       <span className="welcome-mark">{label.eyebrow}</span>
       <p className="welcome-kicker">{label.seconds}</p>

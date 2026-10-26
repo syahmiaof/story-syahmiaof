@@ -38,7 +38,7 @@ export default function ProjectGallery() {
           <span className="text-xs uppercase tracking-ultra-wide text-stone-400 font-semibold block mb-2">
             {ui.kicker}
           </span>
-          <h2 className="font-editorial-display text-3xl md:text-5xl uppercase font-bold text-stone-100">
+          <h2 className="font-editorial-display text-3xl md:text-5xl uppercase font-bold text-stone-100 leading-snug py-1">
             {ui.title}
           </h2>
         </div>
