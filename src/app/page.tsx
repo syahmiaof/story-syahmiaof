@@ -24,8 +24,8 @@ export default function HomePage() {
 
       tl.from(".hero-eyebrow", {
         opacity: 0,
-        y: 18,
-        duration: 0.8,
+        y: 16,
+        duration: 0.7,
         delay: 0.15,
       })
         .from(
@@ -34,25 +34,25 @@ export default function HomePage() {
             opacity: 0,
             y: 35,
             stagger: 0.12,
-            duration: 0.9,
+            duration: 0.85,
           },
-          "-=0.5"
+          "-=0.4"
         )
         .from(
           ".hero-desc",
           {
             opacity: 0,
-            y: 20,
+            y: 18,
             duration: 0.7,
           },
-          "-=0.5"
+          "-=0.45"
         )
         .from(
           ".hero-ctas",
           {
             opacity: 0,
-            y: 18,
-            duration: 0.7,
+            y: 16,
+            duration: 0.65,
           },
           "-=0.4"
         )
@@ -60,11 +60,11 @@ export default function HomePage() {
           ".hero-art-container",
           {
             opacity: 0,
-            x: 40,
-            duration: 1.2,
+            scale: 0.98,
+            duration: 1.1,
             ease: "power2.out",
           },
-          "-=0.9"
+          "-=0.8"
         );
     }, heroRef);
 
@@ -76,11 +76,11 @@ export default function HomePage() {
       <Navbar theme="light" />
 
       {/* Hero Section (Matching 1672x941 reference frame) */}
-      <section className="relative w-full min-h-[941px] flex flex-col justify-between pt-20 overflow-hidden">
+      <section className="relative w-full h-[941px] min-h-[941px] flex flex-col justify-between overflow-hidden">
         {/* Main Content Area */}
         <div className="relative w-full flex-1 max-w-[1672px] mx-auto px-8 md:px-16 flex items-center z-10">
-          <div className="max-w-[620px] py-12 lg:py-0">
-            <div className="hero-eyebrow mb-3">
+          <div className="max-w-[580px] pt-14 lg:pt-8">
+            <div className="hero-eyebrow mb-2">
               <Eyebrow theme="light">MY STORY / MY JOURNEY</Eyebrow>
             </div>
 
@@ -106,28 +106,28 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Right Hero Artwork - Flush to right edge */}
-        <div className="hero-art-container absolute right-0 top-0 bottom-[140px] w-full lg:w-[58%] max-w-[1020px] pointer-events-none select-none flex items-center justify-end z-0">
-          <ParallaxHero className="w-full h-full relative flex items-center justify-end">
+        {/* Right Hero Artwork - Flush to right edge, matching exact (1052, 810) bounds */}
+        <div className="hero-art-container absolute right-0 top-0 w-[1052px] h-[810px] max-w-[58vw] pointer-events-none select-none flex items-center justify-end z-0">
+          <ParallaxHero className="w-full h-full relative">
             <div
-              data-depth="0.6"
+              data-depth="0.5"
               className="relative w-full h-full flex items-center justify-end"
             >
               <Image
-                src="/assets/generated/utama-hero-artwork.png"
+                src="/assets/generated/utama-hero-artwork-v2.png"
                 alt="SYAHMIAOF — Ini Baru Permulaan Hero Artwork"
-                width={1022}
-                height={775}
+                width={1052}
+                height={810}
                 priority
-                className="object-contain object-right h-full w-auto max-w-none drop-shadow-2xl"
+                className="object-cover object-left h-full w-full drop-shadow-2xl"
               />
             </div>
           </ParallaxHero>
         </div>
 
-        {/* Bottom Teaser Section: 01 CERITA */}
-        <div className="relative z-10 w-full border-t border-[#E5DDD0] py-8 bg-[#F7F3EB]/90 backdrop-blur-xs">
-          <div className="max-w-[1672px] mx-auto px-8 md:px-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        {/* Bottom Teaser Section: 01 CERITA (y=810 to y=941) */}
+        <div className="relative z-10 w-full h-[131px] border-t border-[#E5DDD0] bg-[#F7F3EB]/95 backdrop-blur-xs flex items-center">
+          <div className="w-full max-w-[1672px] mx-auto px-8 md:px-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="flex items-center space-x-6">
               <span className="font-editorial-display text-3xl md:text-4xl font-black text-burgundy">
                 01

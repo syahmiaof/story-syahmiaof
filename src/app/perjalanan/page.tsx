@@ -37,8 +37,8 @@ export default function PerjalananPage() {
 
       tl.from(".hero-eyebrow", {
         opacity: 0,
-        y: 18,
-        duration: 0.8,
+        y: 16,
+        duration: 0.7,
         delay: 0.15,
       })
         .from(
@@ -47,25 +47,25 @@ export default function PerjalananPage() {
             opacity: 0,
             y: 35,
             stagger: 0.12,
-            duration: 0.9,
+            duration: 0.85,
           },
-          "-=0.5"
+          "-=0.4"
         )
         .from(
           ".hero-desc",
           {
             opacity: 0,
-            y: 20,
+            y: 18,
             duration: 0.7,
           },
-          "-=0.5"
+          "-=0.45"
         )
         .from(
           ".hero-art-container",
           {
             opacity: 0,
-            y: 30,
-            duration: 1.3,
+            y: 25,
+            duration: 1.2,
             ease: "power2.out",
           },
           "-=0.8"
@@ -74,7 +74,7 @@ export default function PerjalananPage() {
           ".timeline-card",
           {
             opacity: 0,
-            y: 30,
+            y: 25,
             stagger: 0.1,
             duration: 0.8,
           },
@@ -90,10 +90,10 @@ export default function PerjalananPage() {
       <Navbar theme="light" />
 
       {/* Main Reference Viewport Fold (1672x941) */}
-      <section className="relative w-full min-h-[941px] flex flex-col justify-between pt-24 pb-8 overflow-hidden">
-        {/* Upper Hero Grid */}
-        <div className="relative w-full max-w-[1672px] mx-auto px-8 md:px-16 flex items-center z-10 min-h-[520px]">
-          <div className="max-w-[620px]">
+      <section className="relative w-full h-[941px] min-h-[941px] flex flex-col justify-between pt-20 pb-6 overflow-hidden">
+        {/* Upper Hero Grid (y: 80 to 650) */}
+        <div className="relative w-full flex-1 max-w-[1672px] mx-auto px-8 md:px-16 flex items-center z-10">
+          <div className="max-w-[580px] pt-4 lg:pt-0">
             <div className="hero-eyebrow mb-2">
               <Eyebrow theme="light">MY JOURNEY / PERJALANAN AKU</Eyebrow>
             </div>
@@ -111,27 +111,27 @@ export default function PerjalananPage() {
           </div>
         </div>
 
-        {/* Right Hero Artwork: Back-facing figure walking up stairs (Upper half) */}
-        <div className="hero-art-container absolute right-0 top-16 h-[540px] w-full lg:w-[58%] max-w-[1020px] pointer-events-none select-none flex items-center justify-end z-0">
-          <ParallaxHero className="w-full h-full relative flex items-center justify-end">
+        {/* Right Hero Artwork: Back-facing figure walking up stairs, exact (1052, 650) bounds */}
+        <div className="hero-art-container absolute right-0 top-0 w-[1052px] h-[650px] max-w-[58vw] pointer-events-none select-none flex items-center justify-end z-0">
+          <ParallaxHero className="w-full h-full relative">
             <div
-              data-depth="0.7"
+              data-depth="0.6"
               className="relative w-full h-full flex items-center justify-end"
             >
               <Image
-                src="/assets/generated/perjalanan-hero-artwork.png"
+                src="/assets/generated/perjalanan-hero-artwork-v2.png"
                 alt="SYAHMIAOF — Aku Masih Melangkah (Back-Facing Figure Walking Up Stairs)"
-                width={1022}
-                height={625}
+                width={1052}
+                height={650}
                 priority
-                className="object-contain object-right h-full w-auto max-w-none drop-shadow-2xl"
+                className="object-cover object-left h-full w-full drop-shadow-2xl"
               />
             </div>
           </ParallaxHero>
         </div>
 
         {/* Bottom Three Timeline Cards (y=660 to y=920 in reference) */}
-        <div className="relative z-10 w-full max-w-[1672px] mx-auto px-8 md:px-16 pt-4">
+        <div className="relative z-10 w-full max-w-[1672px] mx-auto px-8 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {timelineData.milestones.map((milestone) => (
               <div

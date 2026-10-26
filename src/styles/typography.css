@@ -2,6 +2,7 @@
 
 .font-editorial-display {
   font-family: 'Bodoni Moda', 'Italiana', 'Playfair Display', Georgia, serif;
+  font-variation-settings: "opsz" 96, "wght" 850;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
 }

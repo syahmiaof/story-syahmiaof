@@ -113,7 +113,7 @@ export default function KaryaPage() {
           </div>
         </div>
 
-        {/* Right Floating Screens Artwork - Flush to right edge */}
+        {/* Right Floating Screens Artwork - Flush to right edge, high fidelity */}
         <div className="hero-art-container absolute right-0 top-0 bottom-0 w-full lg:w-[62%] max-w-[1300px] pointer-events-none select-none flex items-center justify-end z-0">
           <ParallaxHero className="w-full h-full relative flex items-center justify-end">
             <div
