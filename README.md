@@ -1,5 +1,21 @@
 # SYAHMIAOF — The Story of Becoming
-### Laman Web Editorial Sinematik Jenama Peribadi (Premium Cinematic Editorial Website)
+
+<div align="center">
+  <img src="public/og-image.png" alt="SYAHMIAOF — The Story of Becoming Cover" width="100%" />
+
+  <p><strong>Laman Web Editorial Sinematik Jenama Peribadi (Premium Cinematic Editorial Website)</strong></p>
+  <p>Dibina berteraskan pembinaan semula berketepatan tinggi berasaskan reka bentuk rujukan editorial mewah bersama tipografi Didone, susun atur lapisan seni 3D, dan gerakan GSAP ScrollTrigger.</p>
+
+  <p>
+    <a href="https://story.syahmiaof.my"><img src="https://img.shields.io/badge/Demo-Live-60E1B5?style=for-the-badge&logoColor=60E1B5&labelColor=101713" alt="Demo Live" /></a>
+    <a href="https://github.com/syahmiaof/story-syahmiaof"><img src="https://img.shields.io/badge/Source-GitHub-60E1B5?style=for-the-badge&logo=github&logoColor=60E1B5&labelColor=101713" alt="GitHub" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-60E1B5?style=for-the-badge&logoColor=60E1B5&labelColor=101713" alt="License" /></a>
+    <a href="https://github.com/syahmiaof/story-syahmiaof/actions"><img src="https://img.shields.io/badge/CI-Passing-60E1B5?style=for-the-badge&logo=githubactions&logoColor=60E1B5&labelColor=101713" alt="CI" /></a>
+    <a href="https://syahmiaof.my"><img src="https://img.shields.io/badge/Portfolio-syahmiaof.my-60E1B5?style=for-the-badge&logo=vercel&logoColor=60E1B5&labelColor=101713" alt="Portfolio" /></a>
+  </p>
+
+  <br />
+</div>
 
 > **"Aku tak bermula dengan segala-galanya. Aku cuma ada impian, keberanian untuk mencuba, dan satu keputusan — untuk tidak berhenti membina masa depan aku sendiri."**
 
@@ -135,3 +151,23 @@ python qa/compare-diffs.py
   - `npm run lint` -> **LULUS (0 amaran, 0 ralat)**.
   - `npx tsc --noEmit` -> **LULUS (0 ralat jenis kod)**.
 - **Aksesibiliti & Gerakan:** Menyokong penuh tetapan `prefers-reduced-motion` untuk pengguna yang sensitif terhadap pergerakan skrin.
+- **Pengesahan CI:** Jenis kod (`tsc --noEmit`), linting (`next lint`), dan binaan pengeluaran (`next build`) disahkan automatik melalui GitHub Actions.
+
+---
+
+## 👤 Pembangun
+
+* **Nama:** [Muhammad Syahmi (syahmiaof)](https://github.com/syahmiaof)
+* **Portfolio:** [syahmiaof.my](https://syahmiaof.my)
+* **Emel:** [syahmiaof123@gmail.com](mailto:syahmiaof123@gmail.com)
+
+---
+
+## 📄 Lesen
+
+Projek ini dilesenkan di bawah [Lesen MIT](LICENSE) — lihat fail [LICENSE](LICENSE) untuk maklumat penuh.
+
+<div align="center">
+  <p>© 2026 <strong>Muhammad Syahmi (syahmiaof)</strong>. Hak Cipta Terpelihara.</p>
+</div>
+
